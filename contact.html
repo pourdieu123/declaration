@@ -30,7 +30,6 @@
             width: 100%;
         }
 
-        /* Palette harmonisée avec le logo (Bleu nuit + Or) */
         :root {
             --navy: #0B1E33;
             --navy-light: #1A2F4E;
@@ -47,7 +46,6 @@
             --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
         }
 
-        /* Header & Navigation */
         .header {
             background: var(--white);
             box-shadow: var(--shadow-sm);
@@ -186,7 +184,6 @@
             color: var(--gold-dark);
         }
 
-        /* Page Hero avec image d'arrière-plan */
         .page-hero {
             position: relative;
             padding: 80px 0;
@@ -225,20 +222,16 @@
             font-size: 3rem;
             font-family: 'Playfair Display', serif;
             margin-bottom: 15px;
-            position: relative;
             text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
         }
 
         .page-hero p {
             font-size: 1.2rem;
-            opacity: 0.95;
             max-width: 700px;
             margin: 0 auto;
-            position: relative;
             text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
         }
 
-        /* Section Contact */
         .section {
             padding: 70px 0;
         }
@@ -269,7 +262,6 @@
             margin-top: 40px;
         }
 
-        /* Informations de contact */
         .contact-info {
             background: var(--white);
             border-radius: 32px;
@@ -322,7 +314,6 @@
             color: var(--gold);
         }
 
-        /* Formulaire */
         .contact-form {
             background: var(--white);
             border-radius: 32px;
@@ -375,6 +366,10 @@
             transition: 0.3s;
             font-size: 1rem;
             width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
         .btn-submit:hover {
@@ -383,7 +378,26 @@
             transform: translateY(-3px);
         }
 
-        /* Carte de prière spéciale */
+        .message-success {
+            background: #2ecc71;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            display: none;
+            text-align: center;
+        }
+
+        .message-error {
+            background: #e74c3c;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            display: none;
+            text-align: center;
+        }
+
         .prayer-card {
             background: linear-gradient(135deg, var(--navy), var(--navy-light));
             border-radius: 32px;
@@ -426,7 +440,6 @@
             transform: translateY(-3px);
         }
 
-        /* Footer */
         .footer {
             background: #0A1622;
             color: #C9D4E4;
@@ -462,6 +475,7 @@
             display: flex;
             gap: 14px;
             margin-top: 20px;
+            flex-wrap: wrap;
         }
         .social-link {
             background: #1F344B;
@@ -548,13 +562,13 @@
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="index.html" class="nav-link">Accueil</a></li>
                     <li><a href="apropos.html" class="nav-link">À propos</a></li>
-                    <li><a href="" class="nav-link">Déclaration</a></li>
+                    <li><a href="declaration.html" class="nav-link">Déclaration</a></li>
                     <li><a href="demande.html" class="nav-link">Demande de prière</a></li>
                     <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle">Activités <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#" class="dropdown-link">Projets en cours</a></li>
-                            <li><a href="#" class="dropdown-link">Réalisations</a></li>
+                            <li><a href="projets.html" class="dropdown-link">Projets en cours</a></li>
+                            <li><a href="realisations.html" class="dropdown-link">Réalisations</a></li>
                         </ul>
                     </li>
                     <li><a href="contact.html" class="nav-link active">Contact</a></li>
@@ -566,14 +580,13 @@
     <section class="page-hero">
         <div class="container">
             <h1>Contactez-nous</h1>
-            <p>Une question, une demande de prière, ou simplement un témoignage ? Écrivez-nous. La grâce te localise, même là où tu es.</p>
+            <p>Une question, une demande de prière, ou simplement un témoignage ? Écrivez-nous. La grâce te localise, même là où tu es car la distance n'est pas un obstacle à la manifestation de la puissance de Dieu.</p>
         </div>
     </section>
 
     <section class="section">
         <div class="container">
             <div class="contact-grid">
-                <!-- Informations de contact -->
                 <div class="contact-info">
                     <h3>Nos coordonnées</h3>
                     <div class="contact-detail">
@@ -611,40 +624,54 @@
                             <a href="https://www.instagram.com/declarationbibliquejournaliere/?hl=fr" target="_blank">@declarationbibliquejournaliere</a>
                         </div>
                     </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon"><i class="fab fa-tiktok"></i></div>
+                        <div>
+                            <h4>Tiktok</h4>
+                            <a href="https://www.tiktok.com/@eugene_godonou?_r=1&_t=ZS-95CpfUPHw8q" target="_blank">@godonoueugene</a>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Formulaire de contact -->
                 <div class="contact-form">
                     <h3>Envoyez-nous un message</h3>
-                    <form id="contactForm">
+                    <div class="message-success" id="successMessage">
+                        <i class="fas fa-check-circle"></i> Merci pour votre message ! Nous vous répondrons rapidement. Que la grâce de Dieu vous accompagne.
+                    </div>
+                    <div class="message-error" id="errorMessage">
+                        <i class="fas fa-exclamation-triangle"></i> Une erreur s'est produite. Veuillez réessayer ou nous contacter directement par email.
+                    </div>
+                    
+                    <form id="contactForm" action="https://formspree.io/f/xbdpzdwl" method="POST">
                         <div class="form-group">
-                            <input type="text" placeholder="Votre nom complet" required>
+                            <input type="text" name="name" placeholder="Votre nom complet" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Votre adresse email" required>
+                            <input type="email" name="email" placeholder="Votre adresse email" required>
                         </div>
                         <div class="form-group">
-                            <input type="tel" placeholder="Votre téléphone (optionnel)">
+                            <input type="tel" name="phone" placeholder="Votre téléphone ">
                         </div>
-                       
                         <div class="form-group">
-                            <textarea placeholder="Votre message... « De Lodebar au Palais, la grâce te localise. »"></textarea>
+                            <textarea name="message" placeholder="Votre message... « De Lodebar au Palais, la grâce te localise. »" required></textarea>
                         </div>
-                        <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Envoyer le message</button>
+                        <input type="hidden" name="_subject" value="📬 NOUVEAU MESSAGE - Contact DBJ">
+                        <input type="hidden" name="_next" value="https://declarationbj.org/merci.html">
+                        <button type="submit" class="btn-submit" id="submitBtn">
+                            <i class="fas fa-paper-plane"></i> Envoyer le message
+                        </button>
                     </form>
                     <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 20px; text-align: center;">Nous vous répondrons dans les meilleurs délais. Que la paix du Seigneur vous garde.</p>
                 </div>
             </div>
 
-            <!-- Carte spéciale prière / restitution (inspirée du livre) -->
             <div class="prayer-card">
                 <i class="fas fa-hands-praying"></i>
                 <h3>Une demande de prière ?</h3>
                 <p>Comme David a cherché Méphibosheth à Lodebar, Dieu te cherche aujourd'hui. Si tu traverses une épreuve, une dépression, ou un sentiment d'isolement, notre équipe de prière intercédera pour toi. Nul ne reste à Lodebar éternellement.</p>
-                <a href="#" class="btn-prayer"><i class="fas fa-pray"></i> Je soumets ma prière</a>
+                <a href="demande.html" class="btn-prayer"><i class="fas fa-pray"></i> Je soumets ma prière</a>
             </div>
 
-            <!-- Verset biblique inspiré du livre -->
             <div style="text-align: center; margin-top: 50px; padding: 25px; background: var(--navy-soft); border-radius: 28px;">
                 <i class="fas fa-bible" style="font-size: 2rem; color: var(--gold); margin-bottom: 15px; display: block;"></i>
                 <p style="font-style: italic; color: var(--navy); font-size: 1.1rem;">« Décharge sur l'Éternel ton fardeau, et il te soutiendra. » <strong>— Psaumes 55:22</strong></p>
@@ -653,17 +680,29 @@
         </div>
     </section>
 
-      <footer class="footer" id="contact">
+    <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-col"><div class="footer-logo" style="display: flex; gap: 12px; align-items: center; margin-bottom: 15px;"><div><span style="font-weight: bold; color: var(--gold);">Déclaration Biblique Journalière</span><p style="font-size: 0.75rem;"></p></div></div><p class="footer-description">Mouvement chrétien qui restaure les cœurs brisés par la puissance de la parole de Dieu.</p><div class="social-links"><a href="https://www.facebook.com/declarationBibliqueJournaliere" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/declarationbibliquejournaliere/?hl=fr" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a><a href="https://www.tiktok.com/@eugene_godonou?_r=1&_t=ZS-95CpfUPHw8q" class="social-link" target="_blank"><i class="fab fa-tiktok"  ></i></a><a href="https://www.youtube.com/@Déclarationbibliquejournalière" class="social-link" target="_blank"><i class="fab fa-youtube"></i></a></div></div>
-                <div class="footer-col"><h3 class="footer-title">Navigation</h3><ul class="footer-links"><li><a href="#">Accueil</a></li><li><a href="#apropos">À propos</a></li><li><a href="#declaration">Déclaration</a></li><li><a href="#priere">Demande de prière</a></li><li><a href="#">Activités</a></li></ul></div>
+                <div class="footer-col">
+                    <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 15px;">
+                        <div><span style="font-weight: bold; color: var(--gold);">Déclaration Biblique Journalière</span><p style="font-size: 0.75rem;"></p></div>
+                    </div>
+                    <p class="footer-description">Mouvement chrétien qui restaure les cœurs brisés par la puissance de la parole de Dieu.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/declarationBibliqueJournaliere" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/declarationbibliquejournaliere/?hl=fr" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@eugene_godonou?_r=1&_t=ZS-95CpfUPHw8q" class="social-link" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.youtube.com/@Déclarationbibliquejournalière" class="social-link" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col"><h3 class="footer-title">Navigation</h3><ul class="footer-links"><li><a href="index.html">Accueil</a></li><li><a href="apropos.html">À propos</a></li><li><a href="#">Déclaration</a></li><li><a href="demande.html">Demande de prière</a></li><li><a href="#">Activités</a></li></ul></div>
                 <div class="footer-col"><h3 class="footer-title">Ressources</h3><ul class="footer-links"><li><a href="#">Vaincre la Dépression (livre)</a></li><li><a href="#">50 Déclarations prophétiques</a></li><li><a href="#">Enseignements audio</a></li><li><a href="#">Témoignages</a></li></ul></div>
-                <div class="footer-col"><h3 class="footer-title">Contact</h3><ul class="footer-contact"><li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Cotonou, Bénin</li><li><i class="fa-brands fa-whatsapp"></i> +229 01 69 80 84 07</li><li><i class="far fa-envelope"></i> declarationbj@gmail.com</li></ul></div>
+                <div class="footer-col"><h3 class="footer-title">Contact</h3><ul class="footer-contact"><li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Cotonou, Bénin</li><li><i class="fab fa-whatsapp"></i> +229 01 69 80 84 07</li><li><i class="far fa-envelope"></i> declarationbj@gmail.com</li></ul></div>
             </div>
             <div class="footer-bottom"><p>© 2026 Déclaration Biblique Journalière.</p></div>
         </div>
     </footer>
+
     <script>
         // Menu mobile
         const menuToggle = document.getElementById('menuToggle');
@@ -694,13 +733,55 @@
             });
         });
 
-        // Simple alert pour démonstration du formulaire
+        // Formulaire avec Formspree
         const contactForm = document.getElementById('contactForm');
+        const successDiv = document.getElementById('successMessage');
+        const errorDiv = document.getElementById('errorMessage');
+        const submitBtn = document.getElementById('submitBtn');
+
         if(contactForm) {
-            contactForm.addEventListener('submit', (e) => {
+            contactForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
-                alert('Merci pour votre message. Nous vous répondrons rapidement. Que la grâce de Dieu vous accompagne, de Lodebar au Palais !');
-                contactForm.reset();
+                
+                successDiv.style.display = 'none';
+                errorDiv.style.display = 'none';
+                
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Envoi en cours...';
+                
+                const formData = new FormData(contactForm);
+                
+                try {
+                    const response = await fetch(contactForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        successDiv.style.display = 'block';
+                        contactForm.reset();
+                        successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        setTimeout(() => {
+                            successDiv.style.display = 'none';
+                        }, 8000);
+                    } else {
+                        errorDiv.style.display = 'block';
+                        setTimeout(() => {
+                            errorDiv.style.display = 'none';
+                        }, 6000);
+                    }
+                } catch (error) {
+                    errorDiv.style.display = 'block';
+                    setTimeout(() => {
+                        errorDiv.style.display = 'none';
+                    }, 6000);
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer le message';
+                }
             });
         }
 
